@@ -46,6 +46,16 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@liveblocks/client@^0.17.7":
+  version "0.17.7"
+  resolved "https://registry.yarnpkg.com/@liveblocks/client/-/client-0.17.7.tgz#d1aaea02c1e77c93d6db3f9cc3e071d996467fb7"
+  integrity sha512-IcdoaZrOHQM1Hg7vb3CrYFhoXita9iGl14D9crxOGeNvic/3pASF7Yvs5wN684QZDvLPFBYjCvihYK1d0aeX5w==
+
+"@liveblocks/zustand@^0.17.7":
+  version "0.17.7"
+  resolved "https://registry.yarnpkg.com/@liveblocks/zustand/-/zustand-0.17.7.tgz#82c8b0cf587147fcc8f348a5278e12c8fc7bcf7c"
+  integrity sha512-Wghq0DWgGCquMzYBl9BqtUizoF6wIv4VwnUuJ86M5voVCCNSEFzBTSHAN3p8itTrxxMt931gP1DhILu6S5DcGA==
+
 "@next-auth/prisma-adapter@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@next-auth/prisma-adapter/-/prisma-adapter-1.0.4.tgz#3e7304ac0615b8bfe425c81f96c40b40cafb59f0"
@@ -2255,3 +2265,10 @@ zod@^3.17.3:
   version "3.17.10"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.17.10.tgz#8716a05e6869df6faaa878a44ffe3c79e615defb"
   integrity sha512-IHXnQYQuOOOL/XgHhgl8YjNxBHi3xX0mVcHmqsvJgcxKkEczPshoWdxqyFwsARpf41E0v9U95WUROqsHHxt0UQ==
+
+zustand@^4.0.0-rc.4:
+  version "4.0.0-rc.4"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.0.0-rc.4.tgz#ed0e0f1fa3e1c7d0d9021739d862d88048d845da"
+  integrity sha512-BP35Rq40GBTKKtYyjLuZogzXGh289xqO8U8ivGIK43nRqURD2dEEImkUci1/jWRUz7J1OPJkUZuNySCho801gQ==
+  dependencies:
+    use-sync-external-store "1.2.0"

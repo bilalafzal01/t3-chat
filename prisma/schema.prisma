@@ -47,6 +47,9 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    Message       Message[]
+    Room          Room?     @relation(fields: [roomId], references: [id])
+    roomId        String?
 }
 
 model VerificationToken {
@@ -55,4 +58,22 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+// * T3-chat stuff
+model Message {
+    id        String   @id @default(cuid())
+    text      String
+    userId    String
+    createdAt DateTime
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    Room      Room?    @relation(fields: [roomId], references: [id])
+    roomId    String?
+}
+
+model Room {
+    id       String    @id @default(cuid())
+    name     String
+    messages Message[]
+    users    User[]
 }

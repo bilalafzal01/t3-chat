@@ -1,9 +1,14 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
+import { unstable_getServerSession } from 'next-auth/next'
+import { useSession, signOut } from 'next-auth/react'
 import Head from 'next/head'
 import { trpc } from '~/utils/trpc'
+import { authOptions } from './api/auth/[...nextauth]'
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(['example.hello', { text: 'from tRPC' }])
+  const { data } = useSession()
+
+  // const hello = trpc.useQuery(['example.hello', { text: 'from tRPC' }])
 
   return (
     <>
@@ -13,9 +18,40 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div>{hello.data?.greeting}</div>
+      <div className='bg-gradient-to-r from-rose-700 to-pink-600 min-h-screen flex items-center justify-center'>
+        <button
+          onClick={() => signOut()}
+          className='bg-stone-100 p-5 text-lg rounded-xl shadow-md hover:scale-110 duration-100'
+        >
+          Sign out {data?.user?.name}
+        </button>
+      </div>
     </>
   )
 }
 
 export default Home
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // * get the session
+  const session = await unstable_getServerSession(
+    context.req,
+    context.res,
+    authOptions
+  )
+
+  if (!session) {
+    // * redirect to signin page
+    return {
+      props: {},
+      redirect: {
+        destination: '/api/auth/signin',
+        permanent: false,
+      },
+    }
+  }
+
+  return {
+    props: {},
+  }
+}

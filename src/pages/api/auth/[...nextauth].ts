@@ -1,4 +1,4 @@
-import NextAuth from 'next-auth'
+import NextAuth, { Session } from 'next-auth'
 import type { NextAuthOptions } from 'next-auth/core/types'
 import GithubProvider from 'next-auth/providers/github'
 

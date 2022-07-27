@@ -41,7 +41,7 @@ const Navbar = () => {
       </div>
       <div className='navbar-end'>
         <ul className='menu menu-horizontal p-0'>
-          <li tabIndex='0'>
+          <li>
             <a>
               Theme
               <svg

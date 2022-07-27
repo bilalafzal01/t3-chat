@@ -1,6 +1,8 @@
+import { useTheme } from 'next-themes'
 import React from 'react'
 
 const Navbar = () => {
+  const { setTheme } = useTheme()
   return (
     <div className='navbar bg-base-100'>
       <div className='navbar-start'>
@@ -38,22 +40,34 @@ const Navbar = () => {
         <a className='btn btn-ghost normal-case text-xl'>t3CHAT</a>
       </div>
       <div className='navbar-end'>
-        <button className='btn btn-ghost btn-circle'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='h-5 w-5'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth='2'
-              d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
-            />
-          </svg>
-        </button>
+        <ul className='menu menu-horizontal p-0'>
+          <li tabIndex='0'>
+            <a>
+              Theme
+              <svg
+                className='fill-current'
+                xmlns='http://www.w3.org/2000/svg'
+                width='20'
+                height='20'
+                viewBox='0 0 24 24'
+              >
+                <path d='M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z' />
+              </svg>
+            </a>
+            <ul className='menu menu-compact bg-base-500'>
+              {THEMES.map((item) => (
+                <li key={item}>
+                  <button
+                    className='w-full flex'
+                    onClick={() => setTheme(item)}
+                  >
+                    <span className='text-sm capitalize'>{item}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </li>
+        </ul>
         <button className='btn btn-ghost btn-circle'>
           <div className='indicator'>
             <svg
@@ -79,3 +93,35 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+const THEMES = [
+  'light',
+  'dark',
+  'cupcake',
+  'bumblebee',
+  'emerald',
+  'corporate',
+  'synthwave',
+  'retro',
+  'cyberpunk',
+  'valentine',
+  'halloween',
+  'garden',
+  'forest',
+  'aqua',
+  'lofi',
+  'pastel',
+  'fantasy',
+  'wireframe',
+  'black',
+  'luxury',
+  'dracula',
+  'cmyk',
+  'autumn',
+  'business',
+  'acid',
+  'lemonade',
+  'night',
+  'coffee',
+  'winter',
+]
